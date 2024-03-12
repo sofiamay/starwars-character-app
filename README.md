@@ -180,9 +180,10 @@ How our app components will consume and alter data
 
 2. Effects:
     - on component load/update: `getCharacterPhoto(character: Character)` if character phot is currently none
+    - on component load/update: `getCharacterHomeworld(homeworldID: number)
 
 3. Updaets:
-    - `Character` character's photo through effect above ↑
+    - `Photo` and `Homeworld` through effect above ↑
 
 ### App > Page
 
