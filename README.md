@@ -59,31 +59,34 @@ Our app will have pagination based on the Star Wars API's pagination. We'll need
 
 ### Characters
 1. totalCharacters
-2. charactersToDisplay: A list of characters. Each character has the following data, according to the Star Wars API schema:
-  - name
-  - height
-  - mass
-  - hair_color
-  - skin_color
-  - eye_color
-  - birth_year
-  - gender
-  - homeworld (URL for requeset for homeworld)
-  - films []
-  - species []
-  - vehicles []
-  - starships []
-  - created
-  - edited
-  - url
+2. currentCharacters: A list of characters. Each character has the following data, according to the Star Wars API schema:
+    - name
+    - height
+    - mass
+    - hair_color
+    - skin_color
+    - eye_color
+    - birth_year
+    - gender
+    - homeworld (URL for requeset for homeworld)
+    - films []
+    - species []
+    - vehicles []
+    - starships []
+    - created
+    - edited
+    - url
+    
+    Additionally:
+    - photo: Photo: retrieved from unsplash and cropped, so all character photos have equal dimensions
+    - We could also optionally provide our own id for each character
 
-Additionally:
-- photo: Photo: retrieved from unsplash and cropped, so all character photos have equal dimensions
-- We could also optionally provide our own id for each character
+### Photo
 
-## Photo
 1. status: null | 'success' | 'error'
+
 2. error: string - error message to display
+
 3. data: based on unsplash API format
     -  id: number
     - slug: string
@@ -144,8 +147,58 @@ Actions that will update our application state (redux store)
     - on Error: display Error message and set `Characters.currentCharacters = []`
 
 4. `getCharacterPhoto(character: Character)` →
-    - return character's photo, if character already has photo
-    - else: make API call to unsplash and set character's photo to result
+    - ake API call to unsplash and set character's photo to result
+
+## Data Structure
+
+How our app components will consume and alter data
+
+### APP
+
+1. Consumes:
+    - our entire redux `store`
+
+2. Updates:
+    - empty query (`newQuery(query: Query)`) on App load
+
+### App > Search (optional feature)
+
+1. Consumes:
+    - `Query`
+
+2. Effects:
+    - new empty query (`newQuery(query: Query)`) on App load
+
+3. Updates:
+    - none
+
+### App > CharacterShow
+
+1. Consumes:
+    - `Characters` mainly `Characters.currentCharacters`
+
+2. Updates:
+    - none
+
+### App > CharacterShow > CharacterChard
+
+1. Consumes:
+    - A single `Character` passed as a prop
+
+2. Effects:
+    - on component load/update: `getCharacterPhoto(character: Character)` if character phot is currently none
+
+3. Updaets:
+    - `Character` character's photo through effect above ↑
+
+### App > Page
+
+1. Consumes:
+    - `Page` including `Page.currentPage` and `Page.totalPages`
+
+2. Updates:
+    - `changeCurrentPage(page: number)` on clicking new page
+
 
 
 
