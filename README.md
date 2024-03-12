@@ -150,7 +150,6 @@ How our app components will consume and alter data
 
 1. Consumes:
     - our entire redux `store`
-
 2. Updates:
     - empty query (`newQuery(query: Query)`) on App load
 
@@ -158,10 +157,8 @@ How our app components will consume and alter data
 
 1. Consumes:
     - `Query`
-
 2. Effects:
     - new empty query (`newQuery(query: Query)`) on App load
-
 3. Updates:
     - none
 
@@ -169,7 +166,6 @@ How our app components will consume and alter data
 
 1. Consumes:
     - `Characters` mainly `Characters`
-
 2. Updates:
     - none
 
@@ -177,19 +173,16 @@ How our app components will consume and alter data
 
 1. Consumes:
     - A single `Character` passed as a prop
-
 2. Effects:
     - on component load/update: `getCharacterPhoto(character: Character)` if character phot is currently none
     - on component load/update: `getCharacterHomeworld(homeworldID: number)
-
-3. Updaets:
+3. Updates:
     - `Photo` and `Homeworld` through effect above ↑
 
 ### App > Page
 
 1. Consumes:
     - `Page` including `Page.currentPage` and `Page.totalPages`
-
 2. Updates:
     - `changeCurrentPage(page: number)` on clicking new page
 
