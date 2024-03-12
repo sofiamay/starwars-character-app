@@ -38,12 +38,6 @@ We need to request information from 2 APIs: 1. swapi, which contains information
 
 This is the required data held in our app's state (aka Redux store)
 
-### API State
-
-- Pending - The start of our API call
-- Fullfilled: Request was successful. Response contains requested data.
-- Rejected: Request failed. Response contains an error
-
 ### Character Query
 - query: string
 - type: 'none' | 'all' | 'search'
@@ -57,9 +51,13 @@ Our app will have pagination based on the Star Wars API's pagination. We'll need
 - Number of pages : number = total characters /ENTRIES_PER_PAGE
 - Current Page: number
 
+### Total Characters
+
+A number set with an API call to swapi
+
 ### Characters
-1. totalCharacters
-2. currentCharacters: A list of characters. Each character has the following data, according to the Star Wars API schema:
+
+Structure determined by API schema using RDT Query. Each character has the following data, according to the Star Wars API schema:
     - name
     - height
     - mass
@@ -83,11 +81,7 @@ Our app will have pagination based on the Star Wars API's pagination. We'll need
 
 ### Photo
 
-1. status: null | 'success' | 'error'
-
-2. error: string - error message to display
-
-3. data: based on unsplash API format
+Structure based on unsplash API schema
     -  id: number
     - slug: string
     - created_at: string
@@ -107,7 +101,7 @@ Our app will have pagination based on the Star Wars API's pagination. We'll need
 
 ### Homeworlds
 
-Each homeworld has the following data according to the Star Wars API schema:
+Structure based on swapi API schema:
 - name
 - rotation_period
 - orbital_period
@@ -132,9 +126,8 @@ Actions that will update our application state (redux store)
 
 1. `newQuery(query: Query)` →
     - update `CharacterQuery.query` 
-    - update `Page.pageCount` and `Characters.totalCharacters` (requires API call to swapi)
-    - set `Charaacters.currentCharacters = []`
-    - `changeCurrentPage(page: number)`
+    - update `Page.pageCount` and `TotalCharacters` (requires API call to swapi)
+    - `changeCurrentPage(page: number)` with `page = 1`
     - on Error: send `newQuery` with query type set to `none`
 
 2. `changeCurrentPage(page: number)` →
@@ -143,8 +136,8 @@ Actions that will update our application state (redux store)
 
 3. `getCharactersOnPage(page:number, query: Query)` →
     - make API call to swapi
-    - set `Characters.currentCharacters` accordingly
-    - on Error: display Error message and set `Characters.currentCharacters = []`
+    - set `Characters` accordingly
+    - on Error: display Error message and set `Characters = []`
 
 4. `getCharacterPhoto(character: Character)` →
     - ake API call to unsplash and set character's photo to result
@@ -175,7 +168,7 @@ How our app components will consume and alter data
 ### App > CharacterShow
 
 1. Consumes:
-    - `Characters` mainly `Characters.currentCharacters`
+    - `Characters` mainly `Characters`
 
 2. Updates:
     - none
