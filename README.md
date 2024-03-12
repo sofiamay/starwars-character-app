@@ -24,11 +24,11 @@ We need to request information from 2 APIs: 1. swapi, which contains information
 
 ### swapi
 
-`GET https://swapi.dev/api/people/` to get the total count of Star Wars characters
+`GET https://swapi.tech/api/people/` to get the total count of Star Wars characters
 
-`GET https://swapi.dev/api/people/?page={n}` to get character info on the nth page
+`GET https://swapi.tech/api/people/?page={n}` to get character info on the nth page
 
-`GET https://swapi.dev/api/planet/{n}` to get homeworld info
+`GET https://swapi.tech/api/planet/{n}` to get homeworld info
 
 ### unplash
 
@@ -117,7 +117,7 @@ Structure based on swapi API schema:
 - edited
 - url
 - photo - an image from unsplash
-- We could also optionally provide our own id for each character based on the API schema. E.g. https://swapi.dev/api/planets/{NUMBER} has an id of NUMBER.
+- We could also optionally provide our own id for each character based on the API schema. E.g. https://swapi.tech/api/planets/{NUMBER} has an id of NUMBER.
 
 
 ## Data Manipulation
