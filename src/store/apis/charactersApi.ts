@@ -9,7 +9,7 @@ interface SearchCharactersParams {
 const charactersApi = createApi({
   reducerPath: "albums",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://swapi.dev/api/",
+    baseUrl: "https://www.swapi.tech/api",
   }),
   tagTypes: [
     "CharacterResult",
@@ -19,7 +19,7 @@ const charactersApi = createApi({
   ],
   endpoints(builder) {
     return {
-      getCharacters: builder.query({
+      getCharactersByPage: builder.query({
         providesTags: (result, error, page) => {
           const tags = result.results.map(
             (character: SwapiCharactersResult) => {
@@ -74,7 +74,7 @@ const charactersApi = createApi({
 });
 
 export const {
-  useGetCharactersQuery,
+  useGetCharactersByPageQuery,
   useGetCharacterQuery,
   useSearchCharactersQuery,
 } = charactersApi;
