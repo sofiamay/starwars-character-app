@@ -13,4 +13,8 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useGetCharactersQuery } from "./apis/charactersApi";
+export {
+  useGetCharactersQuery,
+  useGetCharacterQuery,
+  useSearchCharactersQuery,
+} from "./apis/charactersApi";

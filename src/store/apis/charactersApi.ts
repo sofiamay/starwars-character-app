@@ -1,17 +1,31 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { SwapiCharactersResult, SwapiCharacter } from "../../types";
+
+/* based on the SWAPI schema https://swapi.tech/documentation#people */
+interface SearchCharactersParams {
+  name: string;
+}
 
 const charactersApi = createApi({
   reducerPath: "albums",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://swapi.dev/api/",
   }),
+  tagTypes: [
+    "CharacterResult",
+    "CharacterSearchResult",
+    "AllCharactersOnPage",
+    "Character",
+  ],
   endpoints(builder) {
     return {
       getCharacters: builder.query({
         providesTags: (result, error, page) => {
-          const tags = result.results.map((character) => {
-            return { type: "Character", id: character.uid };
-          });
+          const tags = result.results.map(
+            (character: SwapiCharactersResult) => {
+              return { type: "CharacterResult", id: character.uid };
+            }
+          );
           tags.push({ type: "AllCharactersOnPage", page: page });
           return tags;
         },
@@ -25,9 +39,43 @@ const charactersApi = createApi({
           };
         },
       }),
+
+      getCharacter: builder.query({
+        providesTags: (result, error, uid) => {
+          const character = result.result;
+          return [{ type: "Character", uid: character.uid }];
+        },
+        query: (uid) => {
+          return {
+            url: `/people/${uid}`,
+            method: "GET",
+          };
+        },
+      }),
+
+      searchCharacters: builder.query({
+        providesTags: (result, error, params: SearchCharactersParams) => {
+          const tags = result.result.map((character: SwapiCharacter) => {
+            return { type: "Character", id: character.uid };
+          });
+          tags.push({ type: "CharacterSearchResult", params: params });
+          return tags;
+        },
+        query: (params: SearchCharactersParams) => {
+          return {
+            url: `/people/`,
+            params: { ...params },
+            method: "GET",
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useGetCharactersQuery } = charactersApi;
+export const {
+  useGetCharactersQuery,
+  useGetCharacterQuery,
+  useSearchCharactersQuery,
+} = charactersApi;
 export { charactersApi };
