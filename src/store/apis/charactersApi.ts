@@ -7,7 +7,7 @@ interface SearchCharactersParams {
 }
 
 const charactersApi = createApi({
-  reducerPath: "albums",
+  reducerPath: "characters",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://www.swapi.tech/api",
   }),
