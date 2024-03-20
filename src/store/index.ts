@@ -1,8 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { charactersApi } from "./apis/charactersApi";
+import queryReducer from "./slices/querySlice";
 
 const rootReducer = combineReducers({
+  query: queryReducer,
   [charactersApi.reducerPath]: charactersApi.reducer,
 });
 
@@ -15,6 +17,7 @@ export function setupStore(preloadedState?: Partial<RootState>) {
 
 export const store = configureStore({
   reducer: {
+    query: queryReducer,
     [charactersApi.reducerPath]: charactersApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
@@ -24,6 +27,7 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
+export * from "./slices/querySlice";
 export {
   useGetCharactersByPageQuery,
   useGetCharacterQuery,

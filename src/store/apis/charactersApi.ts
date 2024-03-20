@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SwapiCharactersResult, SwapiCharacter } from "../../types";
 
 /* based on the SWAPI schema https://swapi.tech/documentation#people */
-interface SearchCharactersParams {
+export interface SearchCharactersParams {
   name: string;
 }
 
