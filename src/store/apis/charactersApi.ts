@@ -21,7 +21,7 @@ const charactersApi = createApi({
     return {
       getCharactersByPage: builder.query({
         providesTags: (result, error, page) => {
-          const tags = result.results.map(
+          const tags = result.results?.map(
             (character: SwapiCharactersResult) => {
               return { type: "CharacterResult", id: character.uid };
             }
@@ -42,8 +42,8 @@ const charactersApi = createApi({
 
       getCharacter: builder.query({
         providesTags: (result, error, uid) => {
-          const character = result.result;
-          return [{ type: "Character", uid: character.uid }];
+          const character = result.result ? result.result : {};
+          return [{ type: "Character", uid: character.uid | -1 }];
         },
         query: (uid) => {
           return {
