@@ -1,5 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { SwapiCharactersResult, SwapiCharacter, Character } from "../../types";
+import {
+  SwapiCharactersResult,
+  SwapiCharacter,
+  Character,
+  SwapiSearchResult,
+} from "../../types";
+import { setCharacterCount } from "../slices/characterCountSlice";
 
 /* based on the SWAPI schema https://swapi.tech/documentation#people */
 export interface SearchCharactersParams {
@@ -73,6 +79,18 @@ const charactersApi = createApi({
             params: { ...params },
             method: "GET",
           };
+        },
+        async onQueryStarted(params, { dispatch, queryFulfilled }) {
+          try {
+            const { data } = await queryFulfilled;
+            const searchResult: SwapiSearchResult = data;
+            if (searchResult.total_records) {
+              dispatch(setCharacterCount(searchResult.total_records));
+            }
+          } catch (err: any) {
+            // to do
+            if (err.hasOwnProperty("message")) console.log(err.message);
+          }
         },
       }),
     };

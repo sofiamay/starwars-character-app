@@ -1,4 +1,18 @@
 /*
+  Returned by a search for all people on the SWAPI API
+  GET https://swapi.tech/api/people/
+  View schema on swapi docs
+*/
+export interface SwapiSearchResult {
+  message: string;
+  total_records: number;
+  total_pages: number;
+  previous: string | null;
+  next: string | null;
+  results: [];
+}
+
+/*
   Returned by a search for SWAPI API people by page number
   GET https://swapi.tech/api/people/?page={n}
   View schema on swapi docs
