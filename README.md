@@ -34,26 +34,32 @@ We need to request information from 2 APIs: 1. swapi, which contains information
 
 `GET https://api.unsplash.com/search/photos?query={term}` to get an image for each Character
 
-## Data
+## Reducers
 
 This is the required data held in our app's state (aka Redux store)
 
-### Character Query
+### Query
 - query: string
 - type: 'none' | 'all' | 'search'
 - parameters: [] - search parameters (if any)
-- resultCount: num - total number of results, irrelevant of pages
 
 ### Page
 
 Our app will have pagination based on the Star Wars API's pagination. We'll need:
-- ENTRIES_PER_PAGE: number - In the Star Wars API, this is currently 10
-- Number of pages : number = total characters /ENTRIES_PER_PAGE
-- Current Page: number
+- totalPages: number
+- currentPage: number
 
-### Total Characters
+### Characters API
+Created with RTK's `createAPI` calling the SWAPI API
 
-A number set with an API call to swapi
+### Planets API
+Created with RTK's `createAPI` calling the SWAPI API
+
+### Photos API
+Created with RTK's `createAPI` calling the unsplash API
+
+
+## Data Schemas from APIs
 
 ### Characters
 
@@ -99,7 +105,7 @@ Structure based on unsplash API schema
       small_s3: string
     }
 
-### Homeworlds
+### Planets
 
 Structure based on swapi API schema:
 - name
