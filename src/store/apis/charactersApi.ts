@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { SwapiCharactersResult, SwapiCharacter } from "../../types";
+import { SwapiCharactersResult, SwapiCharacter, Character } from "../../types";
 
 /* based on the SWAPI schema https://swapi.tech/documentation#people */
 export interface SearchCharactersParams {
@@ -42,8 +42,14 @@ const charactersApi = createApi({
 
       getCharacter: builder.query({
         providesTags: (result, error, uid) => {
-          const character = result.result ? result.result : {};
-          return [{ type: "Character", uid: character.uid | -1 }];
+          const character: Character = result.result ? result.result : {};
+          let characterId;
+          if ("uid" in character) {
+            characterId = character.uid;
+          } else {
+            characterId = -1;
+          }
+          return [{ type: "Character", uid: characterId | -1 }];
         },
         query: (uid) => {
           return {

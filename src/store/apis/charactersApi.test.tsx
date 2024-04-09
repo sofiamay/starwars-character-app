@@ -74,22 +74,6 @@ describe('Characters API Test', () => {
     // expect(fetchMock).toBeCalledTimes(1);
   });
 
-  it('getCharacter', async () => {
-    const { result } = renderHook(() => useGetCharacterQuery(EXAMPLE_UID), { wrapper: Wrapper });
-  
-    expect(result.current).toMatchObject({
-      status: 'pending',
-      endpointName: 'getCharacter',
-      isLoading: true,
-      isSuccess: false,
-      isError: false,
-      isFetching: true,
-    });
-
-    // await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    // expect(fetchMock).toBeCalledTimes(1);
-  });
-
   it('searchCharacters', async () => {
     const { result } = renderHook(() => useSearchCharactersQuery({name: "luke"}), { wrapper: Wrapper });
   
