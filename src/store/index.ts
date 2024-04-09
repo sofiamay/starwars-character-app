@@ -4,11 +4,11 @@ import { charactersApi } from "./apis/charactersApi";
 import { planetsApi } from "./apis/planetsApi";
 import { photosApi } from "./apis/photosApi";
 import queryReducer from "./slices/querySlice";
-import characterCountReducer from "./slices/characterCountSlice";
+import pagesReducer from "./slices/pagesSlice";
 
 const rootReducer = combineReducers({
   query: queryReducer,
-  characterCount: characterCountReducer,
+  pages: pagesReducer,
   [charactersApi.reducerPath]: charactersApi.reducer,
   [planetsApi.reducerPath]: planetsApi.reducer,
   [photosApi.reducerPath]: photosApi.reducer,
@@ -24,7 +24,7 @@ export function setupStore(preloadedState?: Partial<RootState>) {
 export const store = configureStore({
   reducer: {
     query: queryReducer,
-    characterCount: characterCountReducer,
+    pages: pagesReducer,
     [charactersApi.reducerPath]: charactersApi.reducer,
     [planetsApi.reducerPath]: planetsApi.reducer,
     [photosApi.reducerPath]: photosApi.reducer,
@@ -40,7 +40,7 @@ export const store = configureStore({
 setupListeners(store.dispatch);
 
 export * from "./slices/querySlice";
-export * from "./slices/characterCountSlice";
+export * from "./slices/pagesSlice";
 export {
   useGetCharactersByPageQuery,
   useGetCharacterQuery,

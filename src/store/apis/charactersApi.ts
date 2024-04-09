@@ -5,7 +5,7 @@ import {
   Character,
   SwapiSearchResult,
 } from "../../types";
-import { setCharacterCount } from "../slices/characterCountSlice";
+import { setPagesFromNewSearchResult } from "../slices/pagesSlice";
 
 /* based on the SWAPI schema https://swapi.tech/documentation#people */
 export interface SearchCharactersParams {
@@ -85,7 +85,7 @@ const charactersApi = createApi({
             const { data } = await queryFulfilled;
             const searchResult: SwapiSearchResult = data;
             if (searchResult.total_records) {
-              dispatch(setCharacterCount(searchResult.total_records));
+              dispatch(setPagesFromNewSearchResult(searchResult.total_records));
             }
           } catch (err: any) {
             // to do
