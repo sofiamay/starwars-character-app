@@ -2,12 +2,14 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { charactersApi } from "./apis/charactersApi";
 import { planetsApi } from "./apis/planetsApi";
+import { photosApi } from "./apis/photosApi";
 import queryReducer from "./slices/querySlice";
 
 const rootReducer = combineReducers({
   query: queryReducer,
   [charactersApi.reducerPath]: charactersApi.reducer,
   [planetsApi.reducerPath]: planetsApi.reducer,
+  [photosApi.reducerPath]: photosApi.reducer,
 });
 
 export function setupStore(preloadedState?: Partial<RootState>) {
@@ -22,11 +24,13 @@ export const store = configureStore({
     query: queryReducer,
     [charactersApi.reducerPath]: charactersApi.reducer,
     [planetsApi.reducerPath]: planetsApi.reducer,
+    [photosApi.reducerPath]: photosApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
       .concat(charactersApi.middleware)
-      .concat(planetsApi.middleware);
+      .concat(planetsApi.middleware)
+      .concat(photosApi.middleware);
   },
 });
 
@@ -39,6 +43,7 @@ export {
   useSearchCharactersQuery,
 } from "./apis/charactersApi";
 export { useGetPlanetQuery } from "./apis/planetsApi";
+export { useSearchPhotosQuery } from "./apis/photosApi";
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

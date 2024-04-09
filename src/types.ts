@@ -62,3 +62,38 @@ export interface SwapiItem {
   uid: number;
   __v: number;
 }
+
+export type UnsplashPhoto = BaseUnsplashResult & Record<string, any>;
+
+interface BaseUnsplashResult {
+  id: string;
+  slug: string;
+  alternative_slugs?: Object;
+  created_at: string;
+  updated_at: string | null;
+  promoted_at: string | null;
+  width: number;
+  height: number;
+  color: string;
+  blur_hash?: string;
+  description: string;
+  alt_description?: string;
+  breadcrumbs: [];
+  urls: {
+    raw: string;
+    full: string;
+    regular: string;
+    small: string;
+    thumb: string;
+    small_s3: string;
+  };
+  links: {
+    self: string;
+    html: string;
+    download?: string;
+    download_location?: string;
+  };
+  likes: number;
+  user?: Object;
+  tags: [];
+}
