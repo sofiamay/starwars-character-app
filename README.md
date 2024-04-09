@@ -64,46 +64,46 @@ Created with RTK's `createAPI` calling the unsplash API
 ### Characters
 
 Structure determined by API schema using RDT Query. Each character has the following data, according to the Star Wars API schema:
-    - name
-    - height
-    - mass
-    - hair_color
-    - skin_color
-    - eye_color
-    - birth_year
-    - gender
-    - homeworld (URL for requeset for homeworld)
-    - films []
-    - species []
-    - vehicles []
-    - starships []
-    - created
-    - edited
-    - url
+- name
+- height
+- mass
+- hair_color
+- skin_color
+- eye_color
+- birth_year
+- gender
+- homeworld (URL for requeset for homeworld)
+- films []
+- species []
+- vehicles []
+- starships []
+- created
+- edited
+- url
     
-    Additionally:
+Additionally:
     - photo: Photo: retrieved from unsplash and cropped, so all character photos have equal dimensions
     - We could also optionally provide our own id for each character
 
 ### Photo
 
 Structure based on unsplash API schema
-    -  id: number
-    - slug: string
-    - created_at: string
-    - updated_at: string
-    - width: number
-    - height: number
-    - color: string
-    - description: string
-    - urls: PhotoURLs {
-      raw: string,
-      full: string,
-      regular: string,
-      small:string,
-      thumb: string,
-      small_s3: string
-    }
+-  id: number
+- slug: string
+- created_at: string
+- updated_at: string
+- width: number
+- height: number
+- color: string
+- description: string
+- urls: PhotoURLs {
+  raw: string,
+  full: string,
+  regular: string,
+  small:string,
+  thumb: string,
+  small_s3: string
+}
 
 ### Planets
 
