@@ -13,11 +13,13 @@ export interface SwapiCharactersResult {
   GET https://www.swapi.tech/api/people/{uid}
   View schema on swapi docs
 */
+export type Character = SwapiCharacter | {};
 export interface SwapiCharacter {
   properties: SwapiCharacterProperties;
   description: string;
   _id: string;
   uid: number;
+  __v: number;
 }
 
 export interface SwapiCharacterProperties {
@@ -33,5 +35,29 @@ export interface SwapiCharacterProperties {
   name: string;
   homeworld: string;
   url: string;
+}
+
+export type Planet = SwapiPlanet | {};
+
+export interface SwapiPlanet {
+  properties: SwapiPlanetProperties;
+  description: string;
+  _id: string;
+  uid: number;
   __v: number;
+}
+
+export interface SwapiPlanetProperties {
+  diameter: number;
+  rotation_period: number;
+  orbital_period: number;
+  gravity: string;
+  population: number;
+  climate: string;
+  terrain: string;
+  surface_water: number;
+  created: string;
+  edited: string;
+  name: string;
+  url: string;
 }
