@@ -14,12 +14,9 @@ export interface SwapiCharactersResult {
   View schema on swapi docs
 */
 export type Character = SwapiCharacter | {};
-export interface SwapiCharacter {
+
+export interface SwapiCharacter extends SwapiItem {
   properties: SwapiCharacterProperties;
-  description: string;
-  _id: string;
-  uid: number;
-  __v: number;
 }
 
 export interface SwapiCharacterProperties {
@@ -39,12 +36,8 @@ export interface SwapiCharacterProperties {
 
 export type Planet = SwapiPlanet | {};
 
-export interface SwapiPlanet {
+export interface SwapiPlanet extends SwapiItem {
   properties: SwapiPlanetProperties;
-  description: string;
-  _id: string;
-  uid: number;
-  __v: number;
 }
 
 export interface SwapiPlanetProperties {
@@ -60,4 +53,12 @@ export interface SwapiPlanetProperties {
   edited: string;
   name: string;
   url: string;
+}
+
+export interface SwapiItem {
+  properties: any;
+  description: string;
+  _id: string;
+  uid: number;
+  __v: number;
 }
