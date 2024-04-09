@@ -28,7 +28,7 @@ We need to request information from 2 APIs: 1. swapi, which contains information
 
 `GET https://swapi.tech/api/people/?page={n}` to get character info on the nth page
 
-`GET https://swapi.tech/api/planet/{n}` to get homeworld info
+`GET https://swapi.tech/api/planets/{n}` to get homeworld info
 
 ### unplash
 
