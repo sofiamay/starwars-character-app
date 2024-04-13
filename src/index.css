@@ -26,20 +26,23 @@
   --primary-basis: 54, 100%, 50%;
 	--primary-light: #fff599;
 	--primary-dark: #ccb800;
-	--secondary: #2A2E34;
-  --secondary-basis: 216, 11%, 18%;
+	--secondary: #1E2328;
+  --secondary-basis: 210, 14%, 14%;
 	--secondary-light: #3B3F46;
-  --secondary-dark: #1E2328;
+  --secondary-dark: #181c20;
+	--accent: #b6231e;
 
 	--accent-light: var(--secondary-light);
-	--accent-regular: var(--primary);
+	--accent-regular: var(--accent);
 	--accent-dark: var(--primary-dark);
 
 	--link-color: var(--accent-regular);
 	--link-hover-color: var(--accent-dark);
 
 	/* Background Colors */
-	--bg-dark-color: var(--primary-dark);
+	--bg-color: var(--secondary);
+	.bg-color { background-color: var(--bg-color); }
+	--bg-dark-color: var(--secondary-dark);
 	.bg-dark-color { background-color: var(--bg-dark-color); }
 
 	/* Gradients */
@@ -50,8 +53,22 @@
 
 /* ---- Typography ---- */
 @font-face {
+	font-family: 'Star Jedi';
+	src: local('Star Jedi'), url('./fonts/Starjedi.ttf') format('truetype');
+	font-weight: 400; 
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'Star Jedi Outline';
-	src: local('MyFont'), url('./fonts/Starjout.ttf') format('truetype');
+	src: local('Star Jedi Outline'), url('./fonts/Starjout.ttf') format('truetype');
+	font-weight: 400; 
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Star Jedi Hol';
+	src: local('Star Jedi Hol'), url('./fonts/Starjhol.ttf') format('truetype');
 	font-weight: 400; 
 	font-style: normal;
 }
@@ -72,7 +89,7 @@
 	--font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-body: 'Public Sans', var(--font-system);
-	--font-brand: 'Star Jedi Outline', serif, var(--font-system);
+	--font-brand: 'Star Jedi Hol', serif, var(--font-system);
 	--font-heading: 'Open Sans', sans-serif, var(--font-system);
 	--font-sub-heading: var(--font-body);
 
@@ -90,7 +107,7 @@ body {
 }
 
 body {
-	background-color: var(--bg-dark-color);
+	background-color: var(--bg-color);
 	/* color: var(--gray-200); */
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
@@ -130,7 +147,8 @@ h5 {
 	line-height: 1.1;
 	font-family: var(--font-brand);
 	font-weight: 600;
-	/* color: var(--primary); */
+	letter-spacing: 0.32rem;
+	color: var(--primary);
 }
 
 h1 {
