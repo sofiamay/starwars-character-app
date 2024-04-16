@@ -1,8 +1,11 @@
-.SearchForm {
-  background-color: var(--secondary-light);
+.heading {
+  margin: 0.75rem 0;
+  color: var(--gray-800);
+  font-style: italic;
 }
 
 input {
+  background: #fff;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   width: 40vw;

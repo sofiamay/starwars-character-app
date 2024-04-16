@@ -25,7 +25,7 @@ function App() {
       <SearchForm />
 
       <div className="main content-block">
-        <div className="bg-secondary-light content h-full flex flex-col items-center">
+        <div className="content pt-16 bg-secondary-light h-full flex flex-col items-center">
           <h4 className="">A grid of character cards will go here.</h4>
           <div className="example-card-content grow flex items-center">
             <p className="">Insert character cards here</p>

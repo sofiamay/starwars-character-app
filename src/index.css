@@ -16,6 +16,9 @@
 .bg-primary {
 	background-color: var(--primary);
 }
+.bg-primary-dark {
+	background-color: var(--primary-dark);
+}
 .bg-secondary {
 	background-color: var(--secondary);
 }
@@ -24,6 +27,9 @@
 }
 .bg-accent {
 	background-color: var(--accent);
+}
+.bg-accent-dark {
+	background-color: var(--accent-dark);
 }
 
 /* Border Colors */
