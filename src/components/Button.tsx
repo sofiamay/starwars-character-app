@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import className from 'classnames';
 import PropTypes from 'prop-types';
-import type { ComponentProps } from 'react';
 import { GoSync } from 'react-icons/go';
 
 // extends ComponentProps<"div">
@@ -26,13 +25,13 @@ function Button(props: ButtonProps) {
       'border-green-500 bg-green-500 text-white': type === 'success',
       'border-yellow-400 bg-yellow-400 text-white': type === 'warning',
       'border-red-500 bg-red-500 text-white': type === 'danger',
-      'rounded': border == 'rounded',
-      'bg-white': border == 'outline',
-      'text-blue-500': (border == 'outline') && (type === 'primary'),
-      'text-gray-900': (border == 'outline') && (type === 'secondary'),
-      'text-green-500': (border == 'outline') && (type === 'success'),
-      'text-yellow-400': (border == 'outline') && (type === 'warning'),
-      'text-red-500': (border == 'outline') && (type === 'danger'),
+      'rounded': border === 'rounded',
+      'bg-white': border === 'outline',
+      'text-blue-500': (border === 'outline') && (type === 'primary'),
+      'text-gray-900': (border === 'outline') && (type === 'secondary'),
+      'text-green-500': (border === 'outline') && (type === 'success'),
+      'text-yellow-400': (border === 'outline') && (type === 'warning'),
+      'text-red-500': (border === 'outline') && (type === 'danger'),
     }
   );
 
