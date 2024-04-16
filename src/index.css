@@ -372,6 +372,7 @@ input:focus {
 
 .content-block {
 	display: block;
+	margin-bottom: 6vw;
 	padding: 2rem 1.5rem;
 }
 .content-block.flex {
