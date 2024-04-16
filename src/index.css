@@ -10,8 +10,14 @@
 .bg-dark-color {
 	background-color: var(--bg-dark-color);
 }
-.base-bg-color {
+.bg-base-color {
 	background-color: var(--bg-color);
+}
+.bg-primary {
+	background-color: var(--primary);
+}
+.bg-secondary {
+	background-color: var(--secondary);
 }
 
 /* ---- Typography ---- */

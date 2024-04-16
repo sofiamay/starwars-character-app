@@ -1,4 +1,5 @@
 import { ChangeEventHandler, useState } from "react";
+import Button from "./Button";
 import './SearchForm.scss';
 
 
@@ -16,9 +17,10 @@ function SearchForm() {
       <div className="content-block">
         <div className="flex flex-col justify-center text-center">
           <h3>Search</h3>
+
           <div className="search">
-          <input type="text" id="search-input" name="search-input" maxLength={24} size={32} value={inputText} onChange={inputHandler} />
-          Button goes here
+            <input type="text" id="search-input" name="search-input" maxLength={24} size={32} value={inputText} onChange={inputHandler} />
+            <Button type="primary"> Testing </Button>
           </div>
         </div>
       </div>
