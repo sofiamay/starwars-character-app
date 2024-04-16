@@ -19,7 +19,7 @@ function SearchForm() {
           <h3 className="heading">Search</h3>
 
           <div className="search flex flex-row gap-4">
-            <input type="text" id="search-input" name="search-input" maxLength={24} size={32} value={inputText} onChange={inputHandler} />
+            <input type="text" id="search-input" name="search-input" maxLength={24} value={inputText} onChange={inputHandler} />
             <Button type="secondary"> Submit </Button>
           </div>
         </div>
