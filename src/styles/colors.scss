@@ -1,0 +1,44 @@
+:root {
+    /* Site Colors */
+	--gray-0: #090b11;
+	--gray-0-basis: 225, 31%, 5%;
+	--gray-50: #141925;
+	--gray-100: #283044;
+	--gray-200: #3d4663;
+	--gray-300: #505d84;
+	--gray-400: #6474a2;
+	--gray-500: #8490b5;
+	--gray-600: #a3acc8;
+	--gray-700: #c3cadb;
+	--gray-800: #e2ebf6;
+	--gray-900: #f3f4f7;
+	--c: 0, 0%, 100%;
+	--gray-999: #ffffff;
+	--gray-999-basis: 0, 0%, 100%;
+	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
+
+	--primary: #fee300;
+  --primary-basis: 54, 100%, 50%;
+	--primary-light: #fff599;
+	--primary-dark: #ccb800;
+	--secondary: #1E2328;
+  --secondary-basis: 210, 14%, 14%;
+	--secondary-light: #3B3F46;
+  --secondary-dark: #181c20;
+	--accent: #b6231e;
+
+	--accent-light: var(--secondary-light);
+	--accent-regular: var(--accent);
+	--accent-dark: var(--primary-dark);
+
+	--link-color: var(--accent-regular);
+	--link-hover-color: var(--accent-dark);
+
+	/* Background Colors */
+	--bg-color: var(--secondary);
+	--bg-dark-color: var(--secondary-dark);
+
+	/* Gradients */
+
+	/* Shadows */
+}
