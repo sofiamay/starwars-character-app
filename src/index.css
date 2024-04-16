@@ -166,6 +166,7 @@ h1 {
 h2 {
 	font-size: var(--text-4xl);
 	font-weight: 300;
+	color: var(--accent-light);
 }
 
 h3 {
