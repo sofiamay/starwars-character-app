@@ -215,6 +215,22 @@ h5 {
 	}
 }
 
+/* Form Elements */
+input {
+	/* border: 5px solid white; */
+	padding: 15px;
+	border-radius: 5px;
+	background: var(--gray-900);
+	margin: 0 0 10px 0;
+	color: var(--secondary-dark);
+}
+
+input:focus {
+	border: 2px solid var(--accent);
+}
+
+
+
 /* ---- Layout ---- */
 
 .sr-only {
@@ -322,7 +338,7 @@ h5 {
 
 .content-block {
 	display: block;
-	padding: 4rem 1.5rem;
+	padding: 2rem 1.5rem;
 }
 
 .wrapper {
