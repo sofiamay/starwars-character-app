@@ -14,19 +14,19 @@ interface ButtonProps  {
 }
 
 function Button(props: ButtonProps) {
-  const { children, type, border, loading, ...rest } = props;
+  const { children, type, border='rounded', loading, ...rest } = props;
 
   const classes = className(
     rest.className,
-    'flex items-center px-3 py-1.5 border h-8',
+    'flex items-center py-6 px-6 border h-8',
     {
       'opacity-80': loading,
-      'border-blue-500 bg-blue-500 text-white': type === 'primary',
-      'border-gray-900 bg-gray-900 text-white': type === 'secondary',
+      'border border-2 border-primary bg-primary text-black font-bold': type === 'primary',
+      'border border-2 border-accent bg-accent text-black font-semibold': type === 'secondary',
       'border-green-500 bg-green-500 text-white': type === 'success',
       'border-yellow-400 bg-yellow-400 text-white': type === 'warning',
       'border-red-500 bg-red-500 text-white': type === 'danger',
-      'rounded-full': border == 'rounded',
+      'rounded': border == 'rounded',
       'bg-white': border == 'outline',
       'text-blue-500': (border == 'outline') && (type === 'primary'),
       'text-gray-900': (border == 'outline') && (type === 'secondary'),

@@ -19,6 +19,24 @@
 .bg-secondary {
 	background-color: var(--secondary);
 }
+.bg-accent {
+	background-color: var(--accent);
+}
+
+/* Border Colors */
+.border-primary {
+	border-color: var(--primary);
+}
+.border-secondary {
+	border-color: var(--secondary);
+}
+.border-accent {
+	border-color: var(--accent);
+}
+
+.border-primary-dark {
+	border-color: #b3a100;
+}
 
 /* ---- Typography ---- */
 
