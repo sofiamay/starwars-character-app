@@ -15,6 +15,7 @@
 }
 
 /* ---- Typography ---- */
+
 @font-face {
 	font-family: 'Star Jedi';
 	src: local('Star Jedi'), url('./fonts/Starjedi.ttf') format('truetype');
@@ -37,6 +38,9 @@
 }
 
 :root {
+	/* default text color*/
+	--text-color: var(--gray-900);
+
 	/* Text Sizes */
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
@@ -71,10 +75,11 @@ body {
 
 body {
 	background-color: var(--bg-color);
-	/* color: var(--gray-200); */
+	color: var(--text-color);
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.5;
+	letter-spacing: 0.04rem;
 }
 
 code {
@@ -102,19 +107,26 @@ a:hover {
 	color: var(--link-hover-color);
 }
 
+p {
+	margin-top: 1rem;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
-	line-height: 1.1;
-	font-family: var(--font-brand);
+	margin: 2rem 0;
+	line-height: 1.2;
+	font-family: var(--font-heading);
 	font-weight: 600;
-	letter-spacing: 0.32rem;
+	letter-spacing: 0.18rem;
 	color: var(--primary);
 }
 
 h1 {
+	font-family: var(--font-brand);
+	letter-spacing: 0.32rem;
 	font-size: var(--text-5xl);
 }
 
@@ -124,7 +136,6 @@ h2 {
 
 h3 {
 	font-size: var(--text-3xl);
-	font-family: var(--font-sub-heading);
 	font-weight: 300;
 }
 
@@ -302,11 +313,16 @@ h5 {
 
 /* Layout*/
 
-section, .section {
+/* .grid-section {
   display: grid;
   gap: 2rem;
   padding: 4rem 1.5rem;
   margin: 4rem 0;
+} */
+
+.content-block {
+	display: block;
+	padding: 4rem 1.5rem;
 }
 
 .wrapper {
@@ -315,7 +331,7 @@ section, .section {
 }
 
 @media (min-width: 768em) {
-  .section {
+  .grid-section {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
     gap: 5rem;
