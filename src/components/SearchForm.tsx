@@ -1,10 +1,24 @@
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, MouseEventHandler, useState } from "react";
 import Button from "./Button";
 import './SearchForm.scss';
+/* Redux */
+import { useDispatch } from "react-redux";
+import { setSearchQuery } from "../store";
+/* Action Types */
+import { SearchCharactersParams } from "../store/apis/charactersApi";
 
 
 function SearchForm() {
   const [inputText, setInputText] = useState("");
+  const dispatch = useDispatch();
+
+  const onSubmit:MouseEventHandler = function() {
+    const actionPayload: SearchCharactersParams = {
+      name: inputText,
+    }
+
+    dispatch(setSearchQuery(actionPayload));
+  }
 
   const inputHandler: ChangeEventHandler = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     //convert input text to lower case
@@ -20,7 +34,7 @@ function SearchForm() {
 
           <div className="search flex flex-row gap-4">
             <input type="text" id="search-input" name="search-input" maxLength={24} value={inputText} onChange={inputHandler} />
-            <Button type="secondary"> Submit </Button>
+            <Button type="secondary" onClick={onSubmit}> Submit </Button>
           </div>
         </div>
       </div>
