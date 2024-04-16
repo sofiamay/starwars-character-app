@@ -156,11 +156,11 @@ h1 {
 
 h2 {
 	font-size: var(--text-4xl);
+	font-weight: 300;
 }
 
 h3 {
 	font-size: var(--text-3xl);
-	font-weight: 300;
 }
 
 h4 {
