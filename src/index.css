@@ -19,6 +19,9 @@
 .bg-secondary {
 	background-color: var(--secondary);
 }
+.bg-secondary-light {
+	background-color: var(--secondary-light);
+}
 .bg-accent {
 	background-color: var(--accent);
 }
@@ -167,6 +170,7 @@ h4 {
 	font-size: var(--text-2xl);
 	font-family: var(--font-heading);
 	font-weight: 300;
+	color: var(--accent);
 }
 
 h5 {
@@ -363,6 +367,9 @@ input:focus {
 .content-block {
 	display: block;
 	padding: 2rem 1.5rem;
+}
+.content-block.flex {
+	display: flex;
 }
 
 .wrapper {
