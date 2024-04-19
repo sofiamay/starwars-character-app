@@ -25,14 +25,16 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
+    "netlify-cli": "^17.22.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "testAll": "react-scripts test --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && netlify deploy"
   },
   "eslintConfig": {
     "extends": [
