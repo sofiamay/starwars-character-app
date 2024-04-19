@@ -9,8 +9,8 @@ function App() {
     <div className="App">
       <Header />
 
-      <section className="app-description">
-        <div className="content-block">
+      <section className="app-description section">
+        <div className="section-content">
           <div className="text-section">
             <h2>Info</h2>
             <p>This is a sample app from <a href="https://proxify.io/articles/suggestions-for-reactjs-code-test-assignments">This website</a> that displays Star Wars characters along with their info.</p>
@@ -26,14 +26,16 @@ function App() {
 
       <SearchForm />
 
-      <div className="main content-block">
-        <div className="content pt-16 bg-secondary-light h-full flex flex-col items-center">
-          <h4 className="">A grid of character cards will go here.</h4>
-          <div className="example-card-content grow flex items-center">
-            <p className="">Insert character cards here</p>
+      <section className="main section">
+        <div className="section-content">
+          <div className="content pt-16 bg-secondary-light h-full flex flex-col items-center">
+            <h4 className="">A grid of character cards will go here.</h4>
+            <div className="example-card-content grow flex items-center">
+              <p className="">Insert character cards here</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

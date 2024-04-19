@@ -4,11 +4,16 @@
   font-style: italic;
 }
 
-.SearchForm .content-block {
+.SearchForm.section {
   margin-bottom: 0;
 }
 
-.SearchForm .content {
+.SearchForm .section-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.SearchForm .form {
   padding-top: 3vw;
   padding-bottom: 3.75vw;
 }
