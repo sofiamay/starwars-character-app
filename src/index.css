@@ -385,7 +385,12 @@ input:focus {
 	margin-inline: auto;
 }
 
-@media (min-width: 768em) {
+@media (min-width: 768px) {
+	.content-block {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+
   .grid-section {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
