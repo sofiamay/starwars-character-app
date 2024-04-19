@@ -27,9 +27,9 @@ function SearchForm() {
   };
 
   return (
-    <section className="SearchForm">
+    <section className="SearchForm bg-accent-dark">
       <div className="content-block">
-        <div className="content bg-accent-dark flex flex-col gap-8 items-center text-center">
+        <div className="content flex flex-col gap-8 items-center text-center">
           <h3 className="heading">Search Characters</h3>
 
           <div className="search flex flex-row gap-4">
