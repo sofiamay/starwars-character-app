@@ -26,7 +26,7 @@ function App() {
 
       <section className="main section">
         <div className="section-content">
-          <div className="content pt-16 bg-secondary-light flex flex-col">
+          <div className="content py-16 bg-secondary-light flex flex-col">
             <h3 className="main-heading text-center">A grid of character cards will go here.</h3>
             <div className="search-bar-wrapper">
               <SearchForm />
