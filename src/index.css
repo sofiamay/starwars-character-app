@@ -196,7 +196,6 @@ h4 {
 	font-size: var(--text-2xl);
 	font-family: var(--font-heading);
 	font-weight: 300;
-	color: var(--accent);
 }
 
 h5 {
