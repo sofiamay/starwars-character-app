@@ -25,14 +25,14 @@ function App() {
       </section>
 
       <section className="main section">
-        <div className="section-content">
-          <div className="content py-16 bg-secondary-light flex flex-col">
-            <h3 className="main-heading text-center">A grid of character cards will go here.</h3>
+          <div className="content bg-secondary-light py-16 flex flex-col">
+            <div className="section-content">
+              <h3 className="main-heading text-center">A grid of character cards will go here.</h3>
+            </div>
             <div className="search-bar-wrapper">
               <SearchForm />
             </div>
           </div>
-        </div>
       </section>
     </div>
   );

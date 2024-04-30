@@ -10,7 +10,8 @@ function Header() {
         <img src={logo} className="logo object-contain max-w-52" alt="Star Wars Character App logo" />
         </div>
         <div className="title grow mx-16">
-          <h1 className="text-center">Star Wars Character App</h1>
+          <h1 className="heading text-center accent">Star Wars</h1>
+          <h1 className="subheading text-center">Character Datachip</h1>
         </div>
 
       </div>

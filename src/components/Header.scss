@@ -1,3 +1,19 @@
-.title h1 {
-  font-size: var(--text-4xl);
+.Header .title {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.Header .heading {
+  font-family: var(--font-title);
+  font-size: var(--text-xl);
+}
+
+.Header .subheading {
+  font-size: 11vw;
+}
+
+@media (min-width: 768px) {
+  .Header .subheading {
+    font-size: 8vw;
+  }
 }

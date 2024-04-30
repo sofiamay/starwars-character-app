@@ -3,6 +3,7 @@
 @import 'tailwindcss/utilities';
 
 @import './styles/colors.scss';
+@import './styles/layout.scss';
 
 /* ---- Color Classes ---- */
 
@@ -107,6 +108,7 @@
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-body: 'Public Sans', var(--font-system);
 	--font-brand: 'Star Jedi Hol', serif, var(--font-system);
+	--font-title: 'Star Jedi', serif, var(--font-system);
 	--font-heading: 'Open Sans', sans-serif, var(--font-system);
 	--font-sub-heading: var(--font-body);
 
@@ -388,37 +390,3 @@ input:focus {
   margin: 4rem 0;
 } */
 
-.section {
-	padding: 4rem 0;
-}
-
-.section-content {
-	display: block;
-	/* margin: 4rem 0; */
-	padding: 4rem 1.5rem;
-}
-.section.flex {
-	display: flex;
-}
-
-.wrapper {
-	width: 100%;
-	margin-inline: auto;
-}
-
-@media (min-width: 768px) {
-	.section-content {
-		padding-left: 4rem;
-		padding-right: 4rem;
-	}
-
-  .grid-section {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-    gap: 5rem;
-  }
-
-  .gallery {
-    grid-area: gallery;
-  }
-}

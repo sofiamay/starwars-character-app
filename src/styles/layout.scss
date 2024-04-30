@@ -1,0 +1,40 @@
+:root {
+  /* Layout Variables */
+
+  /* standard horizontal padding for page content */
+  --content-x-padding: 4rem;
+}
+
+.section {
+	padding: var(--content-x-padding) 0;
+}
+
+.section-content {
+	display: block;
+	padding: var(--content-x-padding) 1.5rem;
+}
+.section.flex {
+	display: flex;
+}
+
+.wrapper {
+	width: 100%;
+	margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+	.section-content {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+
+  .grid-section {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+    gap: 5rem;
+  }
+
+  .gallery {
+    grid-area: gallery;
+  }
+}
