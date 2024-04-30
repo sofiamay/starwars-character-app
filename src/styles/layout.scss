@@ -1,20 +1,26 @@
 :root {
-  /* Layout Variables */
+  /* Layout */
 
   /* standard horizontal padding for page content */
   --content-x-padding: 4rem;
 }
 
 .section {
-	padding: var(--content-x-padding) 0;
+	margin: 4rem 0;
 }
 
 .section-content {
 	display: block;
 	padding: var(--content-x-padding) 1.5rem;
 }
+
 .section.flex {
 	display: flex;
+}
+
+.content {
+  padding-left: var(--content-x-padding);
+  padding-right: var(--content-x-padding);
 }
 
 .wrapper {
