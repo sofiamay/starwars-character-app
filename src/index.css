@@ -32,6 +32,23 @@
 	background-color: var(--accent-dark);
 }
 
+/* Text Colors */
+.primary {
+	color: var(--primary);
+}
+
+.secondary {
+	color: var(--secondary);
+}
+
+.accent {
+	color: var(--accent);
+}
+
+.accent-dark {
+	color: var(--accent-dark);
+}
+
 /* Border Colors */
 .border-primary {
 	border-color: var(--primary);

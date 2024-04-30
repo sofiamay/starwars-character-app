@@ -27,12 +27,11 @@ function SearchForm() {
   };
 
   return (
-    <section className="SearchForm section bg-accent-dark">
+    <section className="SearchForm bg-accent-dark">
         <div className="section-content">
           <div className="form flex flex-col gap-8 items-center text-center">
-            <h3 className="heading">Search Characters</h3>
             <div className="search flex flex-row gap-4">
-              <input type="text" id="search-input" name="search-input" maxLength={24} value={inputText} onChange={inputHandler} />
+              <input type="text" id="search-input" name="search-input" placeholder="Search (optional)" maxLength={24} value={inputText} onChange={inputHandler} />
               <Button type="primary" onClick={onSubmit}> Submit </Button>
             </div>
           </div>

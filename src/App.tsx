@@ -24,14 +24,12 @@ function App() {
         </div>
       </section>
 
-      <SearchForm />
-
       <section className="main section">
         <div className="section-content">
-          <div className="content pt-16 bg-secondary-light h-full flex flex-col items-center">
-            <h4 className="">A grid of character cards will go here.</h4>
-            <div className="example-card-content grow flex items-center">
-              <p className="">Insert character cards here</p>
+          <div className="content pt-16 bg-secondary-light flex flex-col">
+            <h3 className="main-heading text-center">A grid of character cards will go here.</h3>
+            <div className="search-bar-wrapper">
+              <SearchForm />
             </div>
           </div>
         </div>
