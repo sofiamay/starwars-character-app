@@ -1,8 +1,26 @@
+import { ReactNode } from 'react';
+import PropTypes from 'prop-types';
 import { useGetCharactersByPageQuery } from "../store";
 
+interface CharacterShowProps  {
+  children?: ReactNode | undefined;
+  currentPage: number;
+  [props: string]: any;
+}
 
-function CharacterShow() {
-  const { data, error, isFetching } = useGetCharactersByPageQuery(1);
+CharacterShow.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+  currentPage: PropTypes.number,
+  rest: function(props: Object, propName: string, componentName: string) { },
+};
+
+function CharacterShow(props: CharacterShowProps) {
+  const { children, currentPage, ...rest } = props;
+
+  const { data, error, isFetching } = useGetCharactersByPageQuery(currentPage);
 
   let content = null;
   if (isFetching) {
@@ -28,12 +46,14 @@ function CharacterShow() {
   }
 
   return (
-    <div>
-      <div className="m-2 flex flex-row items-center justify-between">
-        <h3 className="text-lg font-bold">Testing Character Show</h3>
-      </div>
-      <div>
-        {content}
+    <div className="CharacterShow">
+      <div className="section-content flex flex-col items-center justify-between">
+        <div className="title">
+          <h3 className="text-lg font-bold">Testing Character Show</h3>
+        </div>
+        <div>
+          {content}
+        </div>
       </div>
     </div>
   );
