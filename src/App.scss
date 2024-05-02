@@ -2,3 +2,17 @@
   padding-top: 0;
 }
 
+// Stars background image with opacity
+.App .app-description .box {
+  position: relative;
+  overflow: hidden;
+}
+
+.App .app-description .bg-stars {
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
