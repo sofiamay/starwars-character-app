@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { useGetCharactersByPageQuery } from "../store";
+import CharacterCard from './CharacterCard';
 
 interface CharacterShowProps  {
   children?: ReactNode | undefined;
@@ -37,10 +38,8 @@ function CharacterShow(props: CharacterShowProps) {
       });
     });
     content = characters.map((character: any) => {
-      return <div>
-        {character.uid}
-        {character.name}
-        {character.url}
+      return <div className="card-wrapper">
+        <CharacterCard uid={character.uid} name={character.name} url={character.url}/>
       </div>;
     });
   }
@@ -51,7 +50,7 @@ function CharacterShow(props: CharacterShowProps) {
         <div className="title">
           <h3 className="text-lg font-bold">Testing Character Show</h3>
         </div>
-        <div>
+        <div className="card-area">
           {content}
         </div>
       </div>
