@@ -31,9 +31,9 @@ function CharacterShow(props: CharacterShowProps) {
     let characters: any[] = [];
     data.results?.forEach((result: any) => {
       characters.push({
-        uid: result.uid,
-        name: result.name,
-        url: result.url
+        uid: result.uid || -1,
+        name: result.name || "Not Found",
+        url: result.url || null,
       });
     });
     content = characters.map((character: any) => {
