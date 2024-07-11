@@ -27,6 +27,8 @@ function CharacterCard(props: CharacterCardProps) {
 
   const { data, error, isFetching } = useGetCharacterQuery(uid);
 
+  let photoQuery: string = "";
+
 
   let content = null;
   let character: any = {};
@@ -36,6 +38,7 @@ function CharacterCard(props: CharacterCardProps) {
     content = <div>Error loading character</div>
   } else {
     character = data.result satisfies SwapiCharacter;
+    photoQuery = character.properties?.name ? encodeURI(character.properties.name) : "";
   }
 
   return (
