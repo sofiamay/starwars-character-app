@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 import PropTypes from 'prop-types';
+import { useGetCharacterQuery } from '../store';
+import type { SwapiCharacter } from '../types';
 
 interface CharacterCardProps {
   children?: ReactNode | undefined;
@@ -23,14 +25,29 @@ CharacterCard.propTypes = {
 function CharacterCard(props: CharacterCardProps) {
   const { children, uid, name, url, ...rest } = props;
 
+  const { data, error, isFetching } = useGetCharacterQuery(uid);
+
+
+  let content = null;
+  let character: any = {};
+  if (isFetching) {
+    content = <div>Loading character...</div>;
+  } else if (error) {
+    content = <div>Error loading character</div>
+  } else {
+    character = data.result satisfies SwapiCharacter;
+  }
+
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
       <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains" />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{ name }</div>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
+        <div className="font-bold text-xl mb-2">{ character.properties?.name }</div>
+        <ul className="character-attributes text-gray-400 ml-0">
+          <li>Height: {character.properties.height} </li>
+          <li>Mass: {character.properties.mass}</li>
+          <li>Birthday: {character.properties.birth_year}</li>
+        </ul>
       </div>
   </div>
   );

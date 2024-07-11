@@ -30,6 +30,7 @@ function CharacterShow(props: CharacterShowProps) {
     content = <div>Error loading characters</div>
   } else {
     let characters: any[] = [];
+    console.log(data)
     data.results?.forEach((result: any) => {
       characters.push({
         uid: result.uid || -1,
@@ -50,7 +51,7 @@ function CharacterShow(props: CharacterShowProps) {
         <div className="title">
           <h3 className="text-lg font-bold">Testing Character Show</h3>
         </div>
-        <div className="card-area">
+        <div className="card-area flex flex-row flex-wrap justify-center gap-8">
           {content}
         </div>
       </div>

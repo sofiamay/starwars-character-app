@@ -260,11 +260,12 @@ h5 {
 	/* Lists */
 	ol, ul, menu {
 		margin-left: 2rem;
-		list-style: circle;
+		list-style: none;
 	}
 	li {
 		margin-top: 0.15rem;
 		margin-bottom: 0.15rem;
+		padding-left: 0;
 	}
 }
 
