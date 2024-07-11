@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { UnsplashPhoto } from "../../types";
 
-const UNSPLASH_AUTH: string = process.env.UNSPLASH_CREDENTIALS
-  ? `Client-ID ${process.env.UNSPLASH_CREDENTIALS}`
+const UNSPLASH_AUTH: string = process.env.REACT_APP_UNSPLASH_CREDENTIALS
+  ? `Client-ID ${process.env.REACT_APP_UNSPLASH_CREDENTIALS}`
   : "";
 
 /* based on the Unsplash schema https://unsplash.com/documentatio */
@@ -17,7 +17,7 @@ const photosApi = createApi({
     return {
       searchPhotos: builder.query({
         providesTags: (result, error, searchQuery: string) => {
-          const tags = result.result.map((photo: UnsplashPhoto) => {
+          const tags = result.results?.map((photo: UnsplashPhoto) => {
             return { type: "Photo", id: photo.id };
           });
           tags.push({ type: "PhotoSearchResult", searchQuery: searchQuery });

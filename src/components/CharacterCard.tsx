@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { useGetCharacterQuery } from '../store';
 import type { SwapiCharacter } from '../types';
+import Photo from './Photo';
 
 interface CharacterCardProps {
   children?: ReactNode | undefined;
@@ -38,12 +39,14 @@ function CharacterCard(props: CharacterCardProps) {
     content = <div>Error loading character</div>
   } else {
     character = data.result satisfies SwapiCharacter;
-    photoQuery = character.properties?.name ? encodeURI(character.properties.name) : "";
+    photoQuery = character.properties?.name || "";
   }
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains" />
+    <div className="max-w-sm w-72 rounded overflow-hidden shadow-lg">
+      <div className="card-image-area h-48 overflow-hidden">
+        <Photo query={photoQuery} />
+      </div>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{ character.properties?.name }</div>
         <ul className="character-attributes text-gray-400 ml-0">
