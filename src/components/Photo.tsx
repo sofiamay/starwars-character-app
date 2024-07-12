@@ -30,12 +30,13 @@ function Photo(props: PhotoProps) {
   } else {
     if (data.results) {
       photoResult = data.results[0];
+      content = <img className="w-full h-64" src={photoResult.urls?.full} alt={photoResult.alt_description} />
     }
   }
 
   return (
     <>
-      <img className="w-full h-64" src={photoResult.urls?.full} alt={photoResult.alt_description} />
+      {content}
     </>
   );
 }

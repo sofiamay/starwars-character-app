@@ -34,12 +34,20 @@ function CharacterCard(props: CharacterCardProps) {
   let content = null;
   let character: any = {};
   if (isFetching) {
-    content = <div>Loading character...</div>;
+    content = <div>Loading image...</div>;
   } else if (error) {
-    content = <div>Error loading character</div>
+    content = <div>Error loading image</div>
   } else {
     character = data.result satisfies SwapiCharacter;
     photoQuery = character.properties?.name || "";
+    content = <div className="px-6 py-4">
+    <div className="font-bold text-xl mb-2">{ character.properties?.name }</div>
+    <ul className="character-attributes text-gray-400 ml-0">
+      <li>Height: {character.properties.height} </li>
+      <li>Mass: {character.properties.mass}</li>
+      <li>Birthday: {character.properties.birth_year}</li>
+    </ul>
+  </div>
   }
 
   return (
@@ -47,14 +55,7 @@ function CharacterCard(props: CharacterCardProps) {
       <div className="card-image-area h-48 overflow-hidden">
         <Photo query={photoQuery} />
       </div>
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{ character.properties?.name }</div>
-        <ul className="character-attributes text-gray-400 ml-0">
-          <li>Height: {character.properties.height} </li>
-          <li>Mass: {character.properties.mass}</li>
-          <li>Birthday: {character.properties.birth_year}</li>
-        </ul>
-      </div>
+      {content}
   </div>
   );
 }

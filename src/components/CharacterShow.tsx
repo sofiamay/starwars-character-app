@@ -30,7 +30,6 @@ function CharacterShow(props: CharacterShowProps) {
     content = <div>Error loading characters</div>
   } else {
     let characters: any[] = [];
-    console.log(data)
     data.results?.forEach((result: any) => {
       characters.push({
         uid: result.uid || -1,
@@ -39,8 +38,8 @@ function CharacterShow(props: CharacterShowProps) {
       });
     });
     content = characters.map((character: any) => {
-      return <div className="card-wrapper">
-        <CharacterCard uid={character.uid} name={character.name} url={character.url}/>
+      return <div className="card-wrapper" key={character.uid}>
+        <CharacterCard  uid={Number(character.uid)} name={character.name} url={character.url}/>
       </div>;
     });
   }
