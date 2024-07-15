@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useGetCharacterQuery } from '../store';
 import type { SwapiCharacter } from '../types';
 import Photo from './Photo';
+import DefaultPortrait from '../images/default-portrait.png';
 
 interface CharacterCardProps {
   children?: ReactNode | undefined;
@@ -50,10 +51,12 @@ function CharacterCard(props: CharacterCardProps) {
   </div>
   }
 
+  const portrait = photoQuery ? <Photo query={photoQuery} /> : <img className='w-full h-64' src={DefaultPortrait}/>;
+
   return (
     <div className="max-w-sm w-72 rounded overflow-hidden shadow-lg">
       <div className="card-image-area h-48 overflow-hidden">
-        <Photo query={photoQuery} />
+        {photoQuery && <Photo query={photoQuery} />}
       </div>
       {content}
   </div>
