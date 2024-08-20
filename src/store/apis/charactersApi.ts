@@ -9,7 +9,7 @@ import { setPagesFromNewSearchResult } from "../slices/pagesSlice";
 
 /* based on the SWAPI schema https://swapi.tech/documentation#people */
 export interface SearchCharactersParams {
-  name: string;
+  name?: string;
 }
 
 const charactersApi = createApi({
@@ -67,7 +67,7 @@ const charactersApi = createApi({
 
       searchCharacters: builder.query({
         providesTags: (result, error, params: SearchCharactersParams) => {
-          const tags = result.result.map((character: SwapiCharacter) => {
+          const tags = result.results.map((character: SwapiCharacter) => {
             return { type: "Character", id: character.uid };
           });
           tags.push({ type: "CharacterSearchResult", params: params });

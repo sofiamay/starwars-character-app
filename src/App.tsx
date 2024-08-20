@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import type { RootState } from './store'
+import type { RootState } from './store';
+import { useSearchCharactersQuery } from './store';
 import StarsBackground from './images/bg-stars.jpeg';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
@@ -8,6 +9,9 @@ import CharacterShow from './components/CharacterShow';
 import './App.scss';
 
 function App() {
+  //Dispatch the searchChractersQuery when root component renders
+  useSearchCharactersQuery({});
+
   const { currentPage } = useSelector((state: RootState) => state.pages);
 
   return (

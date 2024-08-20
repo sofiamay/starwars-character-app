@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { useGetCharactersByPageQuery } from "../store";
 import CharacterCard from './CharacterCard';
+import Pagination from './Pagination';
 
 interface CharacterShowProps  {
   children?: ReactNode | undefined;
@@ -52,6 +53,9 @@ function CharacterShow(props: CharacterShowProps) {
         </div>
         <div className="card-area flex flex-row flex-wrap justify-start gap-8">
           {content}
+        </div>
+        <div className="pagination-wrapper">
+          <Pagination currentPage={currentPage} />
         </div>
       </div>
     </div>

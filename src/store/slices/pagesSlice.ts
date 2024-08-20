@@ -8,7 +8,7 @@ interface PagesState {
 }
 
 const initialState = {
-  totalPages: 0,
+  totalPages: 1,
   currentPage: 1,
 } satisfies PagesState as PagesState;
 
@@ -19,13 +19,17 @@ const pagesSlice = createSlice({
     setPagesFromNewSearchResult: (state, action: PayloadAction<number>) => {
       const resultCount = action.payload;
       const totalPages = Math.ceil(resultCount / ENTRIES_PER_PAGE);
-      state = {
+      return {
         totalPages: totalPages,
         currentPage: 1,
       };
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
-      state.currentPage = action.payload;
+      const newPage = action.payload;
+      return {
+        ...state,
+        currentPage: newPage,
+      };
     },
   },
 });
