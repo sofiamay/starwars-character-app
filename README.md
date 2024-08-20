@@ -2,6 +2,9 @@
 
 This project is a sample interview Assignment from [This website](https://proxify.io/articles/suggestions-for-reactjs-code-test-assignments).
 
+View the app: [here](https://starwarscharacterapp.netlify.app/)
+
+
 ## Assignment Description
 
 Using a public API, display a list of all Star Wars characters using the endpoint “/people”. The API has paging, so the developer must also implement pagination. Also, a simple loader for fetching/refetching data as well as handling the error state (i.e., if the API server is down).
