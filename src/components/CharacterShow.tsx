@@ -48,7 +48,7 @@ function CharacterShow(props: CharacterShowProps) {
     <div className="CharacterShow">
       <div className="section-content flex flex-col items-center justify-between">
         <div className="title">
-          <h3 className="text-lg font-bold">Testing Character Show</h3>
+          {/* <h3 className="text-lg font-bold">Results</h3> */}
         </div>
         <div className="card-area flex flex-row flex-wrap justify-center gap-8">
           {content}
