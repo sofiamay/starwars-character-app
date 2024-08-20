@@ -50,7 +50,7 @@ function CharacterShow(props: CharacterShowProps) {
         <div className="title">
           {/* <h3 className="text-lg font-bold">Results</h3> */}
         </div>
-        <div className="card-area flex flex-row flex-wrap justify-center gap-8">
+        <div className="card-area flex flex-row flex-wrap justify-start gap-8">
           {content}
         </div>
       </div>
